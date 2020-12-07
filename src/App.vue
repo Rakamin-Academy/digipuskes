@@ -5,8 +5,8 @@
     </div>
     
     <div v-if="isLogin"  class="login_true">
-      <rekam-medis v-if="currentPage=='rekamMedis'"></rekam-medis>
-      <jadwal-dokter v-if="currentPage=='jadwalDokter'"></jadwal-dokter>
+      <rekam-medis v-if="currentPage='rekamMedis'"></rekam-medis>
+      <jadwal-dokter v-else-if="currentPage='jadwalDokter'"></jadwal-dokter>
       <button @click="test">Test</button>
     </div>
     
