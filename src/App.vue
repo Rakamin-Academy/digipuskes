@@ -1,12 +1,13 @@
 <template>
   <div id="app">
     <div v-if="!isLogin" class="login_false">
-      <h1>Not Login</h1>
+      <login-app></login-app>
     </div>
     
     <div v-if="isLogin"  class="login_true">
-      <rekam-medis v-if="currentPage='rekamMedis'"></rekam-medis>
-      <jadwal-dokter v-else-if="currentPage='jadwalDokter'"></jadwal-dokter>
+      <rekam-medis v-if="currentPage=='rekamMedis'"></rekam-medis>
+      <jadwal-dokter v-if="currentPage=='jadwalDokter'"></jadwal-dokter>
+      <daftar-pasien v-if="currentPage=='daftarPasien'"></daftar-pasien>
       <button @click="test">Test</button>
     </div>
     
@@ -16,6 +17,8 @@
 <script>
 import JadwalDokter from './components/JadwalDokter.vue'
 import RekamMedis from './components/RekamMedis.vue'
+import LoginApp from './components/login.vue'
+import DaftarPasien from './components/DaftarPasien.vue'
 
 export default {
   name: 'App',
@@ -32,7 +35,9 @@ export default {
   },
   components: {
     JadwalDokter,
-    RekamMedis
+    RekamMedis,
+    LoginApp,
+    DaftarPasien
   },
   computed: {
     currentStaff() {
