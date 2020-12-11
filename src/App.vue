@@ -5,12 +5,15 @@
     </div>
     
     <div v-if="isLogin"  class="login_true">
-      <rekam-medis v-if="currentPage=='rekamMedis'"></rekam-medis>
-      <jadwal-dokter v-if="currentPage=='jadwalDokter'"></jadwal-dokter>
-      <daftar-pasien v-if="currentPage=='daftarPasien'"></daftar-pasien>
-      <button @click="test">Test</button>
+      <side-bar class="sidebar"></side-bar>
+      <div class="content-container">
+        <rekam-medis v-if="currentPage== routes.rekamMedis"></rekam-medis>
+        <jadwal-dokter v-if="currentPage==routes.jadwalDokter"></jadwal-dokter>
+        <daftar-pasien v-if="currentPage==routes.pendaftaran"></daftar-pasien>
+      </div>
+      <div class="searchbar"></div>
     </div>
-    
+    <!-- <button @click="test">Test</button> -->
   </div>
 </template>
 
@@ -19,9 +22,16 @@ import JadwalDokter from './components/JadwalDokter.vue'
 import RekamMedis from './components/RekamMedis.vue'
 import LoginApp from './components/login.vue'
 import DaftarPasien from './components/DaftarPasien.vue'
+import SideBar from './components/sidebar.vue'
+import routes from './utils/routerConfig.js'
 
 export default {
   name: 'App',
+  data() {
+    return {
+      routes
+    }
+  },
   async beforeCreate() {
     await this.$store.dispatch('fetchPatientList')
     await this.$store.dispatch('getPatientData')
@@ -37,7 +47,8 @@ export default {
     JadwalDokter,
     RekamMedis,
     LoginApp,
-    DaftarPasien
+    DaftarPasien,
+    SideBar
   },
   computed: {
     currentStaff() {
@@ -69,4 +80,27 @@ export default {
 </script>
 
 <style>
+* {
+    font-family: 'Lato', sans-serif;
+}
+.login_true {
+  display: grid;
+  grid-template-columns: 256px 1fr;
+  grid-template-rows: 88px 1fr;
+  height: 100vh;
+  width: 100vw;
+}
+.sidebar {
+  grid-row: 1/3;
+  grid-column: 1/2;
+}
+.content-container {
+  grid-row: 2/3;
+  grid-column: 2/3;
+  overflow: scroll;
+}
+.searchbar {
+  grid-row: 1/2;
+  grid-column: 2/3;
+}
 </style>

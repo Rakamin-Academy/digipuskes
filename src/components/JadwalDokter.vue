@@ -75,7 +75,7 @@ body {
     margin: 0;
 }
 .main-container {
-    margin-left: 256px;
+    /* margin-left: 256px; */
     margin-top: 88px;
 }
 ul {
@@ -94,6 +94,10 @@ h1 {
     padding-left: 52px;
     margin-bottom: 15px;
     margin-top: 35px;
+    text-align: left;
+}
+h5 {
+    text-align: left;
 }
 /* TABLE BASE STYLINGS */
 .table-outer-container {
