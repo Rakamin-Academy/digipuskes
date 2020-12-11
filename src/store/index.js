@@ -8,7 +8,7 @@ const store = new Vuex.Store({
     state: {
         currentPatient: null,
         isLookingPatient: false,
-        isLogin: true,
+        isLogin: false,
         PatientList: [],
         currentStaff: 'Adi',
         //percobaan
