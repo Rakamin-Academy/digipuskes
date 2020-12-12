@@ -2,6 +2,14 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
 import store from './store'
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+//please import these bootstrap files to your style
+// import 'bootstrap/dist/css/bootstrap.css'
+// import 'bootstrap-vue/dist/bootstrap-vue.css'
+
 
 import JadwalDokter from './components/JadwalDokter.vue'
 import RekamMedis from './components/RekamMedis.vue'
@@ -14,6 +22,8 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
  
 library.add(faUserSecret, faPencilAlt, faCheckSquare, faUserMd, faStethoscope, faWheelchair, faChartPie);
 
+Vue.use(BootstrapVue)
+Vue.use(IconsPlugin)
 Vue.use(VueRouter)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
