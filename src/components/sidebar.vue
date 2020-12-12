@@ -3,22 +3,26 @@
       <div class="sidebar-component" @click="changePage(pages.dashboard)">
           <!-- icon -->
           <font-awesome-icon :icon="['fas', 'chart-pie']" class="icon"></font-awesome-icon>
-          <h5 class="sidebars">Dashboard</h5>
+          <router-link class="sidebars" to='/main'><h5>Dashboard</h5></router-link>
+        
       </div>
       <div class="sidebar-component" @click="changePage(pages.pendaftaran)">
           <!-- icon -->
           <font-awesome-icon :icon="['fas', 'stethoscope']" class="icon"></font-awesome-icon>
-          <h5 class="sidebars">Pendaftaran</h5>
+          <router-link class="sidebars" to='/daftarPasien'><h5>Pendaftaran </h5></router-link>
+          
       </div>
       <div class="sidebar-component" @click="changePage(pages.jadwalDokter)">
           <!-- icon -->
           <font-awesome-icon :icon="['fas', 'user-md']" class="icon"></font-awesome-icon>
-          <h5 class="sidebars">Jadwal Dokter</h5>
+          <router-link class="sidebars" to='/jadwalDokter'><h5>Jadwal Dokter</h5></router-link>
+          
       </div>
       <div class="sidebar-component" @click="changePage(pages.rekamMedis)">
           <!-- icon -->
           <font-awesome-icon :icon="['fas', 'wheelchair']" class="icon"></font-awesome-icon>
-          <h5 class="sidebars">Rekan Medis Pasien</h5>
+          <router-link class="sidebars" to='/rekamMedis'><h5>Rekan Medis Pasien</h5></router-link>
+
       </div>
       <div class="sidebar-component patient-name" v-if="currentPatient" @click="changePage(pages.rekamMedis)">
           <!-- icon -->
@@ -52,6 +56,10 @@ export default {
 </script>
 
 <style scoped>
+a, h5 {
+    text-decoration: none;
+    color:  #2f80ed;
+}
 .sidebar_container {
     width: 256px;
     height: 100vh;
@@ -65,7 +73,7 @@ export default {
     margin-left: 24px;
     display: flex;
     flex-direction: row;
-    margin-top: ;
+    /* margin-top: ; */
 }
 .patient-name {
     margin-left: 48px;

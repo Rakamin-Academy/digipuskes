@@ -58,7 +58,7 @@
             edit
             </span></th>
         </tr>
-        <tr v-for="el in patientList" :key="el.name" >
+        <tr v-for="el in patientList" :key="el.name" @click="changePatient(el.name, el.parentName, el.dateOfBirth)">
           <td>{{ el.name }}</td>
           <td>{{ el.parentName }}</td>
           <td>{{ el.dateOfBirth }}</td>
@@ -95,6 +95,14 @@ export default {
                 ImmunisasiList:[]
                 };
             this.$store.dispatch('addNewPatient',newPatient)       
+        },
+        changePatient(name, parentName, dateOfBirth) {
+          const newData = {
+            name, parentName, dateOfBirth
+          }
+          this.$store.dispatch('getPatientData', newData) 
+          this.$router.push('rekamMedis')
+          // console.log(newData)
         }
     },
     data() {
@@ -111,6 +119,9 @@ export default {
 </script>
 
 <style scoped>
+tr {
+  cursor: pointer;
+}
 body{  
     font-family: Calibri, Helvetica, sans-serif;  
     background-color: rgb(255, 255, 255);  

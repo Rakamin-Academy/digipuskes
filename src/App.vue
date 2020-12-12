@@ -6,11 +6,7 @@
     
     <div v-if="isLogin"  class="login_true">
       <side-bar class="sidebar"></side-bar>
-      <div class="content-container">
-        <rekam-medis v-if="currentPage== routes.rekamMedis"></rekam-medis>
-        <jadwal-dokter v-if="currentPage==routes.jadwalDokter"></jadwal-dokter>
-        <daftar-pasien v-if="currentPage==routes.pendaftaran"></daftar-pasien>
-      </div>
+      <router-view></router-view>
       <div class="searchbar"></div>
     </div>
     <!-- <button @click="test">Test</button> -->
@@ -18,10 +14,7 @@
 </template>
 
 <script>
-import JadwalDokter from './components/JadwalDokter.vue'
-import RekamMedis from './components/RekamMedis.vue'
 import LoginApp from './components/login.vue'
-import DaftarPasien from './components/DaftarPasien.vue'
 import SideBar from './components/sidebar.vue'
 import routes from './utils/routerConfig.js'
 
@@ -44,10 +37,7 @@ export default {
     
   },
   components: {
-    JadwalDokter,
-    RekamMedis,
     LoginApp,
-    DaftarPasien,
     SideBar
   },
   computed: {

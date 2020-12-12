@@ -1,5 +1,5 @@
 <template>
-  <div class="main-container">
+  <div v-if="patientData" class="main-container">
         <h1 class="header">Rekam Medis Pasien</h1>
         <div class="biodata">
             <div class="photo-container"></div>
