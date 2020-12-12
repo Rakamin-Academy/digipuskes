@@ -16,7 +16,7 @@ const store = new Vuex.Store({
             name: 'Jack',
             parentName: 'Joko',
         },
-        currentPage: 'daftarPasien',
+        currentPage: 'dashboard',
     },
     mutations: {
         login(state) {
@@ -82,7 +82,7 @@ const store = new Vuex.Store({
         console.log('Yey')
     },
     newPage({commit}, payload) {
-        console.log(payload)
+        // console.log(payload)
         commit('changePage', payload)
     },
 
