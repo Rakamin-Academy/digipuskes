@@ -92,7 +92,6 @@ const store = new Vuex.Store({
     addTindakan({commit}, payload) {
         //payload berupa tindakan
         commit('tindakanPatient', payload);
-        // console.log(await (await db.collection('Patients')[patientIndex].get()).data())
     },
     }
   })

@@ -64,7 +64,7 @@
                     </div>
                     <div class="tindakan-item">
                         <h5>Tanggal</h5>
-                        <input v-model="tanggal" type="text" name="" id="">
+                        <input v-model="tanggal" type="date" name="" id="">
                     </div>
                     <div class="tindakan-item">
                         <h5>Vaksin</h5>
