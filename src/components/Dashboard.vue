@@ -1,97 +1,9 @@
 <template>
-  <div>
-    <div class="wrapper">
-      <form>
-        <div class="container">
-          <h1>Pendaftaran Pasien</h1>
-          <div class="wrapper2">
-            <div class="radio1">
-              <label>
-                Status Pasien : </label
-              ><br />
-              <input type="radio" value="Sudah Terdaftar" name="statusDaftar" checked > Sudah Terdaftar   
-              <input type="radio" value="Baru Mendaftar" name="statusDaftar" />
-              Baru Mendaftar
-            </div>
-            <div class="container2">
-              <div class="inputNama">
-                <label> Nama Pasien : </label>
-                <input
-                  v-model="name"
-                  type="text"
-                  name="nama"
-                  placeholder="nama"
-                  size="10"
-                  required
-                />
-              </div>
-              <div>
-                <label for="dateofbirth">Tanggal Lahir : </label>
-                <input
-                  v-model="dateOfBirth"
-                  type="date"
-                  name="dateofbirth"
-                  id="dateofbirth"
-                />
-              </div>
-              <div class="inputOrtu">
-                <label> Nama Orang Tua : </label>
-                <input
-                  v-model="parentName"
-                  type="text"
-                  name="nama"
-                  placeholder="nama orangtua"
-                  size="10"
-                  required
-                />
-              </div>
-              <div class="telpon">
-                <label>
-                  No. Telpon :
-                </label>
-                <input
-                  v-model="parentNo"
-                  type="text"
-                  name="phone"
-                  placeholder="nomor telepon"
-                  size="10"
-                  required
-                />
-              </div>
-              <div class="email">
-                <label>
-                  Alamat Email :
-                </label>
-                <input
-                  v-model="parentEmail"
-                  type="text"
-                  name="email"
-                  placeholder="alamat email"
-                  size="10"
-                  required
-                />
-              </div>
-              <div class="alamat">
-                Alamat Tinggal :
-                <textarea
-                  v-model="address"
-                  cols="50"
-                  rows="3"
-                  placeholder="alamat domisili pasien"
-                  value="address"
-                  required
-                >
-                </textarea>
-              </div>
-            </div>
-          </div>
-          <button @click.prevent="addPatient" type="submit" class="registerbtn">
-            DAFTAR
-          </button>
-        </div>
-      </form>
-    </div>
-    <div class="tabelpasien">
+  <div class="component-container">
+      <div class="tabel-vaksin">
+
+      </div>
+      <div class="tabelpasien">
       <table>
         <tr>
           <th>Nama Pasien</th>
@@ -162,21 +74,18 @@ export default {
           this.$router.push('rekamMedis')
           // console.log(newData)
         }
-    },
-    data() {
-        return {
-            name: '',
-            dateOfBirth: '',
-            parentName: '',
-            parentNo: '',
-            parentEmail:'',
-            address:''            
-        }
-    },
+}
 }
 </script>
 
 <style scoped>
+
+.tabel-vaksin {
+    background: url(https://i.pinimg.com/originals/1f/a3/c6/1fa3c678aac33d5cbf43f135a1a95b85.png);
+    width: 731px;
+    height: 467px;
+    margin: auto;
+}
 .wrapper {
   font-family: 'Montserrat', sans-serif;
   background-color: rgb(255, 255, 255);
@@ -189,12 +98,6 @@ export default {
 .container {
   padding: 50px;
   background-color: #e5e5e5;
-}
-
-h1 {
-  font-size: 50px;
-  font-weight: bold;
-  color: #2f80ed;
 }
 
 .container2 {

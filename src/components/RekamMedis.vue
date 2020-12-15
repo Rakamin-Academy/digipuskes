@@ -1,5 +1,7 @@
 <template>
-  <div v-if="patientData" class="main-container">
+<div class="component-container">
+    <h1 v-if="!patientData">Silahkan Pilih Pasien</h1>
+    <div v-if="patientData" class="main-container">
         <h1 class="header">Rekam Medis Pasien</h1>
         <div class="biodata">
             <div class="photo-container"></div>
@@ -80,6 +82,8 @@
             <button @click="addTindakan" class="input-btn">INPUT</button>
         </div>
     </div>
+</div>
+  
 </template>
 
 <script>
@@ -132,7 +136,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
     * {
     font-family: 'Lato', sans-serif;
 }

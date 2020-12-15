@@ -13,6 +13,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 import JadwalDokter from './components/JadwalDokter.vue'
 import RekamMedis from './components/RekamMedis.vue'
+import Dashboard from './components/Dashboard.vue'
 // import LoginApp from './components/login.vue'
 import DaftarPasien from './components/DaftarPasien.vue'
 
@@ -32,7 +33,7 @@ Vue.config.productionTip = false
 const router = new VueRouter({
   routes: [
     // {path: '/', component: LoginApp},
-    {path: '/main', component: null},
+    {path: '/main', component: Dashboard},
     {path: '/daftarPasien', component: DaftarPasien},
     {path: '/jadwalDokter', component: JadwalDokter},
     {path: '/rekamMedis', component: RekamMedis},
