@@ -59,9 +59,10 @@ export default {
 a, h5 {
     text-decoration: none;
     color:  #2f80ed;
+    font-size: 15px;
 }
 .sidebar_container {
-    width: 256px;
+    width: 200px;
     height: 100vh;
     box-shadow: 4px 0px 16px rgba(16, 30, 115, 0.08);
     padding-top: 30px;

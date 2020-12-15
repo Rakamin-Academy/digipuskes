@@ -9,13 +9,13 @@
               <label>
                 Status Pasien : </label
               ><br />
-              <!-- <input type="radio" value="Sudah Terdaftar" name="statusDaftar" checked > Sudah Terdaftar    -->
+              <input type="radio" value="Sudah Terdaftar" name="statusDaftar" checked > Sudah Terdaftar   
               <input type="radio" value="Baru Mendaftar" name="statusDaftar" />
               Baru Mendaftar
             </div>
             <div class="container2">
               <div class="inputNama">
-                <label> Nama Pasien </label>
+                <label> Nama Pasien : </label>
                 <input
                   v-model="name"
                   type="text"
@@ -26,7 +26,7 @@
                 />
               </div>
               <div>
-                <label for="dateofbirth">Tanggal Lahir</label>
+                <label for="dateofbirth">Tanggal Lahir : </label>
                 <input
                   v-model="dateOfBirth"
                   type="date"
@@ -35,7 +35,7 @@
                 />
               </div>
               <div class="inputOrtu">
-                <label> Nama Orang Tua </label>
+                <label> Nama Orang Tua : </label>
                 <input
                   v-model="parentName"
                   type="text"
@@ -101,7 +101,7 @@
           <th>Dokter</th>
           <th>
             <span class="material-icons">
-              edit
+              Actions
             </span>
           </th>
         </tr>
@@ -125,7 +125,7 @@
           </td>
           <td>
             <span class="material-icons">
-              actions
+              <font-awesome-icon :icon="['fas', 'pencil-alt']" class="edit-btn" @click="editData(el.name)"></font-awesome-icon>
             </span>
           </td>
         </tr>
@@ -213,7 +213,7 @@ input[type="password"],
 textarea {
   width: 80%;
   padding: 20px;
-  margin: 10px 0 22px 0;
+  margin: 15px 15px 22px 0;
   display: inline-block;
   border: none;
   background: #f1f1f1;
@@ -239,24 +239,26 @@ hr {
   cursor: pointer;
   width: 100%;
   opacity: 0.9;
+  border-radius: 25px;
 }
 .registerbtn:hover {
   opacity: 1;
 }
 table {
-  font-family: arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   border-collapse: collapse;
   width: 95%;
   align-items: center;
-  margin-left: 50px;
+  margin-left: 10px;
+  font-size: 15px;
 }
 
 td,
 th {
   border: 1px solid #dddddd;
-  text-align: left;
+  text-align: center;
   padding: 8px;
-}
+  }
 
 tr:nth-child(even) {
   background-color: #dddddd;
