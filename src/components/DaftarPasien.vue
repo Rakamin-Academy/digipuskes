@@ -191,6 +191,12 @@ export default {
   background-color: #e5e5e5;
 }
 
+h1 {
+  font-size: 50px;
+  font-weight: bold;
+  color: #2f80ed;
+}
+
 .container2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -240,6 +246,7 @@ hr {
   width: 100%;
   opacity: 0.9;
   border-radius: 25px;
+  font-weight: bold;
 }
 .registerbtn:hover {
   opacity: 1;

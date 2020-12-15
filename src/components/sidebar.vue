@@ -63,7 +63,7 @@ a, h5 {
 }
 .sidebar_container {
     width: 200px;
-    height: 100vh;
+    height: 100%;
     box-shadow: 4px 0px 16px rgba(16, 30, 115, 0.08);
     padding-top: 30px;
 }
