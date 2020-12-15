@@ -99,4 +99,7 @@ export default {
   grid-column: 2/3;
   margin-bottom: 0;
 }
+.table-header {
+  font-size: 14px;
+}
 </style>
