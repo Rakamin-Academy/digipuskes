@@ -13,8 +13,9 @@ const store = new Vuex.Store({
         currentStaff: 'Adi',
         //percobaan
         serchedPatientData: {
-            name: 'Jack',
-            parentName: 'Joko',
+            // name: 'Jack',
+            // parentName: 'Joko',
+            // dateOfBirth: '12 Dec 2019',
         },
         currentPage: 'dashboard',
     },
@@ -22,10 +23,6 @@ const store = new Vuex.Store({
         login(state) {
             state.isLogin = true;
             // state.currentStaff = staffData;
-        },
-        logout(state) {
-            state.isLogin = false;
-            state.currentStaff = null;
         },
         getPatientList(state, patientData) {
             state.PatientList = patientData;
@@ -61,11 +58,16 @@ const store = new Vuex.Store({
         // console.log('Fetch')
         console.log(state.PatientList)
     }, //login dan dapat semua data pasien
-
-    getPatientData({commit, state}) {
-        const toFind = state.serchedPatientData;
-        const result = state.PatientList.filter(el => el.name == toFind.name && el.parentName == toFind.parentName)
-        // console.log(result[0])
+    getPatientData({commit, state}, payload) {
+        let toFind
+        if(payload) {
+            toFind = payload
+        } else {
+            toFind = state.serchedPatientData;
+        }
+        console.log(toFind)
+        const result = state.PatientList.filter(el => el.name == toFind.name && el.parentName == toFind.parentName && el.dateOfBirth == toFind.dateOfBirth)
+        console.log(result[0])
         commit('getCurrentPatient', result[0])
     }, //click salah satu orang dan dapet datanya
 
@@ -75,6 +77,7 @@ const store = new Vuex.Store({
     },
 
     loginStaff({commit}, payload) {
+        //if correct, then commit
         commit('login')
         console.log(payload)
     }, //dapetin nama dan auth doang
@@ -89,10 +92,7 @@ const store = new Vuex.Store({
     addTindakan({commit}, payload) {
         //payload berupa tindakan
         commit('tindakanPatient', payload);
-        // console.log(await (await db.collection('Patients')[patientIndex].get()).data())
     },
-
-
     }
   })
 

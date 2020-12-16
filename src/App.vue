@@ -6,24 +6,18 @@
     
     <div v-if="isLogin"  class="login_true">
       <side-bar class="sidebar"></side-bar>
-      <div class="content-container">
-        <rekam-medis v-if="currentPage== routes.rekamMedis"></rekam-medis>
-        <jadwal-dokter v-if="currentPage==routes.jadwalDokter"></jadwal-dokter>
-        <daftar-pasien v-if="currentPage==routes.pendaftaran"></daftar-pasien>
-      </div>
-      <div class="searchbar"></div>
+      <router-view></router-view>
+      <search-bar class="searchbar"></search-bar>
     </div>
     <!-- <button @click="test">Test</button> -->
   </div>
 </template>
 
 <script>
-import JadwalDokter from './components/JadwalDokter.vue'
-import RekamMedis from './components/RekamMedis.vue'
 import LoginApp from './components/login.vue'
-import DaftarPasien from './components/DaftarPasien.vue'
 import SideBar from './components/sidebar.vue'
 import routes from './utils/routerConfig.js'
+import SearchBar from './components/SearchBar.vue'
 
 export default {
   name: 'App',
@@ -44,11 +38,9 @@ export default {
     
   },
   components: {
-    JadwalDokter,
-    RekamMedis,
     LoginApp,
-    DaftarPasien,
-    SideBar
+    SideBar,
+    SearchBar
   },
   computed: {
     currentStaff() {
@@ -84,6 +76,9 @@ export default {
     font-family: 'Lato', sans-serif;
 }
 .login_true {
+  background-color: rgba(246,248,251,1);
+}
+.login_true {
   display: grid;
   grid-template-columns: 256px 1fr;
   grid-template-rows: 88px 1fr;
@@ -102,5 +97,9 @@ export default {
 .searchbar {
   grid-row: 1/2;
   grid-column: 2/3;
+  margin-bottom: 0;
+}
+.table-header {
+  font-size: 14px;
 }
 </style>

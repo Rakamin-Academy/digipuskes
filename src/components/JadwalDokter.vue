@@ -83,7 +83,7 @@ ul {
     padding-left: 0;
     margin: 0;
 }
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, .table-header {
     margin: 0;
 }
 li, p {

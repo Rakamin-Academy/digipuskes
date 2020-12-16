@@ -1,7 +1,9 @@
 <template>
-  
   <body>
-      <h3 id="button">digipuskes</h3>
+    <div class="header">
+      <h3>digipuskes</h3>
+    </div>
+    <div class="container1">
       <main id="main-holder">
         <h1 id="login-header">Digital Puskesmas</h1>
         <h4 id="login-sub-header">
@@ -30,43 +32,65 @@
             class="login-form-field"
             placeholder="PASSWORD"
           />
-          <input @click="login" type="submit" value="Login" id="login-form-submit" />
+          <input
+            @click="login"
+            type="submit"
+            value="Login"
+            id="login-form-submit"
+          />
         </form>
       </main>
-    
+    </div>
   </body>
-
-
 </template>
 
 <script>
 export default {
-    methods: {
-        login (){
-            this.$store.dispatch('loginStaff')
-        }
-    }
-}
+  methods: {
+    login() {
+      this.$store.dispatch("loginStaff");
+    },
+  },
+};
 </script>
 
-<style>
-    html {
-    height: 100%;
-    color: #2f80ed;
-  }
-  
-  body {
-    height: 100%;
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    display: grid;
-    justify-items: center;
-    align-items: center;
-    background-color: #ffffff;
-    text-align: center;
-  }
-  
-  #button {
+<style scoped>
+body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #ffffff;
+
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 25px;
+
+}
+.header h3 {
+  color:  #ffffff;
+  background-color: #2f80ed;
+  text-align: center;
+  padding: 10px 25px 10px 25px;
+  border-radius: 5px;
+  font-size: 15px;
+  margin-right: 15px;
+}
+
+.container1{
+  height: 100%;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  background-color: #ffffff;
+  color: #2f80ed;
+}
+
+#button {
     border-radius: 10px;
     margin: auto;
     width: 90%;
@@ -82,13 +106,14 @@ export default {
 
   #main-holder {
     width: 50%;
-    height: 100%;
+    height: 50%;
     display: grid;
     justify-items: center;
     align-items: center;
     background-color: white;
     border-radius: 7px;
     box-shadow: 0px 0px 5px 2px rgb(255, 255, 255);
+    text-align: center;
   }
   
   #login-header {
