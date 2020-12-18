@@ -9,7 +9,7 @@
       <router-view></router-view>
       <search-bar class="searchbar"></search-bar>
     </div>
-    <button @click.prevent="test">Test</button>
+    <!-- <button @click.prevent="test">Test</button> -->
   </div>
 </template>
 
@@ -42,7 +42,6 @@ export default {
     if(JSON.parse(localStorage.isLogin)) {
       this.$store.dispatch("loginStaff")
     }
-    //buat percobaan
   
   },
   created() {
@@ -65,7 +64,7 @@ export default {
       return this.$store.state.currentStaff
     },
     PatientList() {
-      console.log(this.$store.getters.patientListget)
+      // console.log(this.$store.getters.patientListget)
       return this.$store.getters.patientListget
     },
     isLogin() {
