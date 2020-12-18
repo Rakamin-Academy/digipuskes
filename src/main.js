@@ -32,7 +32,7 @@ Vue.config.productionTip = false
 
 const router = new VueRouter({
   routes: [
-    // {path: '/', component: LoginApp},
+    {path: '/', component: Dashboard},
     {path: '/main', component: Dashboard},
     {path: '/daftarPasien', component: DaftarPasien},
     {path: '/jadwalDokter', component: JadwalDokter},

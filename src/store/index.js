@@ -43,7 +43,7 @@ const store = new Vuex.Store({
     },
     actions: {
       // API Key 21059414113068a2e3b8e2e21349cb28
-    async fetchPatientList({commit, state}) {
+    async fetchPatientList({commit}) {
         let patientArr = []
         await db.collection('Patients').get()
         .then(snapshot => {
@@ -55,8 +55,10 @@ const store = new Vuex.Store({
         })
         
         .catch(er => console.log(er))
+        await db.collection('Patients').doc('PasienA').get().then(res => console.log(res)).catch(err => console.log(err))
+        // console.log(jack)
         // console.log('Fetch')
-        console.log(state.PatientList)
+        // console.log(state.PatientList)
     }, //login dan dapat semua data pasien
     getPatientData({commit, state}, payload) {
         let toFind
@@ -67,7 +69,7 @@ const store = new Vuex.Store({
         }
         console.log(toFind)
         const result = state.PatientList.filter(el => el.name == toFind.name && el.parentName == toFind.parentName && el.dateOfBirth == toFind.dateOfBirth)
-        console.log(result[0])
+        // console.log(result[0])
         commit('getCurrentPatient', result[0])
     }, //click salah satu orang dan dapet datanya
 
