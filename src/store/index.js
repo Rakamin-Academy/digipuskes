@@ -19,6 +19,11 @@ const store = new Vuex.Store({
         },
         currentPage: 'dashboard',
     },
+    getters: {
+        patientListget: (state) => {
+            return state.PatientList
+        }
+    },
     mutations: {
         login(state) {
             state.isLogin = true;
@@ -43,19 +48,23 @@ const store = new Vuex.Store({
     },
     actions: {
       // API Key 21059414113068a2e3b8e2e21349cb28
-    async fetchPatientList({commit}) {
-        let patientArr = []
-        await db.collection('Patients').get()
-        .then(snapshot => {
-          snapshot.forEach(el => {
-            //   console.log(el.data());
-                patientArr.push(el.data())
-              commit('getPatientList', patientArr)
+    async fetchPatientList({commit}, payload) {
+        if(!payload) {
+            let patientArr = []
+            await db.collection('Patients').get()
+            .then(snapshot => {
+              snapshot.forEach(el => {
+                //   console.log(el.data());
+                    patientArr.push(el.data())
+                  commit('getPatientList', patientArr)
+                })
             })
-        })
-        
-        .catch(er => console.log(er))
-        await db.collection('Patients').doc('PasienA').get().then(res => console.log(res)).catch(err => console.log(err))
+            
+            .catch(er => console.log(er))
+        }
+        else if (payload) {
+            commit('getPatientList', payload)
+        }
         // console.log(jack)
         // console.log('Fetch')
         // console.log(state.PatientList)
@@ -74,14 +83,14 @@ const store = new Vuex.Store({
     }, //click salah satu orang dan dapet datanya
 
     addNewPatient({commit}, payload) {
-        console.log(payload);
+        (payload);
         commit('addPatient', payload)
     },
 
-    loginStaff({commit}, payload) {
+    loginStaff({commit}) {
         //if correct, then commit
         commit('login')
-        console.log(payload)
+        // console.log(payload)
     }, //dapetin nama dan auth doang
     test() {
         console.log('Yey')
@@ -93,6 +102,7 @@ const store = new Vuex.Store({
 
     addTindakan({commit}, payload) {
         //payload berupa tindakan
+        // console.log(state.PatientList)
         commit('tindakanPatient', payload);
     },
     }
