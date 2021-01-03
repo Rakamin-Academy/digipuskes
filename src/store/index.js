@@ -29,6 +29,10 @@ const store = new Vuex.Store({
             state.isLogin = true;
             // state.currentStaff = staffData;
         },
+        logout(state) {
+            state.isLogin = false;
+            // state.currentStaff = staffData;
+        },
         getPatientList(state, patientData) {
             state.PatientList = patientData;
         },
@@ -44,6 +48,9 @@ const store = new Vuex.Store({
         },
         changePage(state, newPage) {
             state.currentPage = newPage
+        },
+        deleteTindakan(state, data) {
+            state.currentPatient.ImmunisasiList = state.currentPatient.ImmunisasiList.filter(el => el.name != data.name)
         }
     },
     actions: {
@@ -92,16 +99,21 @@ const store = new Vuex.Store({
         commit('login')
         // console.log(payload)
     }, //dapetin nama dan auth doang
-    test() {
-        console.log('Yey')
+    logout({commit}) {
+        commit('logout')
     },
     newPage({commit}, payload) {
         // console.log(payload)
         commit('changePage', payload)
     },
-
+    deleteTindakan({commit}, payload) {
+        //payload berupa tindakan
+        // console.log(state.currentPatient.ImmunisasiList.filter(el => el.name != payload.name))
+        commit('deleteTindakan', payload);
+    },
     addTindakan({commit}, payload) {
         //payload berupa tindakan
+        
         // console.log(state.PatientList)
         commit('tindakanPatient', payload);
     },

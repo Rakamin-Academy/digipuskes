@@ -53,7 +53,8 @@ export default {
   },
   watch: {
     PatientList: function() {
-      localStorage.setItem('patientData', JSON.stringify(this.$store.getters.patientListget))
+      console.log('changed')
+      localStorage.setItem('patientData', JSON.stringify(this.PatientList))
     },
     isLogin: function() {
       localStorage.setItem('isLogin', JSON.stringify(this.isLogin))
@@ -65,7 +66,7 @@ export default {
     },
     PatientList() {
       // console.log(this.$store.getters.patientListget)
-      return this.$store.getters.patientListget
+      return this.$store.state.PatientList
     },
     isLogin() {
       return this.$store.state.isLogin

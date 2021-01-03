@@ -1,6 +1,9 @@
 <template>
   <div class="component-container">
+    <div class="main">
       <input @keyup="searchPatient" v-model="search" class="search-input" type="text" name="" id="" placeholder="cari...">
+      <button class="logout-btn" @click="logout">Logout</button>
+    </div>
       <div class="suggestions">
         <div @click="changePatient(el.name, el.parentName, el.dateOfBirth)" class="suggested" v-for="el in suggestedList" :key="el.name">
           <div class="suggested-container">
@@ -14,6 +17,7 @@
           
         </div>
       </div>
+      
   </div>
 </template>
 
@@ -45,8 +49,11 @@ export default {
           // console.log(newData)
           this.search= ''
           // this.suggestedList = []
+    },
+    logout() {
+      console.log('logged out')
+      this.$store.dispatch("logout");
     }
-        
   },
   computed: {
       patientList() {
@@ -88,5 +95,8 @@ export default {
 }
 p {
   margin: 0;
+}
+.logout-btn {
+  margin-left: 40vw;
 }
 </style>
