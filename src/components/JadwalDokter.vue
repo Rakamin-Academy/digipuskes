@@ -1,12 +1,12 @@
 <template>
   <div class="main-container">
-        <h1 class="header">Jadwal Praktek Dokter</h1>
+        <h1 class="header">Jadwal Petugas Medis</h1>
         <div class="table-outer-container">
-            <h3 class="table-title">Dokter yang bertugas</h3>
+            <h3 class="table-title">Petugas Medis Bertugas</h3>
         <div class="table-container">
             <div class="table-header-container">
-                <h4 class="table-header col1">Dokter</h4>
-                <h4 class="table-header col2">Spesialisasi</h4>
+                <h4 class="table-header col1">Nama</h4>
+                <h4 class="table-header col2">Keterangan</h4>
                 <h4 class="table-header col3">Jadwal Praktik</h4>
                 <h4 class="table-header col4">Waktu</h4>
             </div>
@@ -30,29 +30,29 @@ export default {
             dokterList: [
                 {
                     id: '110001',
-                    nama: 'Dr. Savero Adi',
-                    spesialisasi: 'Dokter Anak',
+                    nama: 'Musridah',
+                    spesialisasi: 'Bidan',
                     jadwal: 'Kamis - Sabtu',
                     waktu: '09.00 - 15.00 WIB'
                 },
                 {
                     id: '110002',
-                    nama: 'Dr. Suryono Kencono',
-                    spesialisasi: 'Dokter Umum',
+                    nama: 'Indra S.',
+                    spesialisasi: 'Mantri',
                     jadwal: 'Senin - Jumat',
                     waktu: '09.00 - 15.00 WIB'
                 },
                 {
                     id: '110003',
-                    nama: 'Dr. Indra Permata',
-                    spesialisasi: 'Dokter Anak',
+                    nama: 'Siswati R.',
+                    spesialisasi: 'Bidan',
                     jadwal: 'Selasa - Kamis',
                     waktu: '09.00 - 15.00 WIB'
                 },
                 {
                     id: '110004',
-                    nama: 'Dr. Adit Siswo',
-                    spesialisasi: 'Dokter Umum',
+                    nama: 'Adit',
+                    spesialisasi: 'Mantri',
                     jadwal: 'Kamis - Sabtu',
                     waktu: '09.00 - 15.00 WIB',
                 },

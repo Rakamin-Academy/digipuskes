@@ -38,7 +38,7 @@
                 <h4 class="table-header col1">Jenis Tindakan</h4>
                 <h4 class="table-header col2">Tanggal</h4>
                 <h4 class="table-header col3">Waktu</h4>
-                <h4 class="table-header col4">Dokter</h4>
+                <h4 class="table-header col4">Petugas</h4>
                 <h4 class="table-header col5">Remarks</h4>
             </div>
             <ul class="content-list isi-rekam">
@@ -62,7 +62,7 @@
             <div class="tindakan-wrapper">
                 <div class="tindakan-content">
                     <div class="tindakan-item">
-                        <h5>Nama Dokter</h5>
+                        <h5>Nama Petugas</h5>
                         <input v-model="dokter" type="text">
                     </div>
                     <div class="tindakan-item">
