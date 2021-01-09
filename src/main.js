@@ -18,10 +18,10 @@ import Dashboard from './components/Dashboard.vue'
 import DaftarPasien from './components/DaftarPasien.vue'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faUserSecret, faPencilAlt, faCheckSquare, faUserMd, faStethoscope, faWheelchair, faChartPie } from '@fortawesome/free-solid-svg-icons'
+import { faUserSecret, faPencilAlt, faCheckSquare, faUserMd, faStethoscope, faWheelchair, faChartPie, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
  
-library.add(faUserSecret, faPencilAlt, faCheckSquare, faUserMd, faStethoscope, faWheelchair, faChartPie);
+library.add(faUserSecret, faPencilAlt, faCheckSquare, faUserMd, faStethoscope, faWheelchair, faChartPie, faTrash);
 
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
@@ -32,7 +32,7 @@ Vue.config.productionTip = false
 
 const router = new VueRouter({
   routes: [
-    // {path: '/', component: LoginApp},
+    {path: '/', component: Dashboard},
     {path: '/main', component: Dashboard},
     {path: '/daftarPasien', component: DaftarPasien},
     {path: '/jadwalDokter', component: JadwalDokter},

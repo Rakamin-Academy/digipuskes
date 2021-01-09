@@ -19,9 +19,18 @@ const store = new Vuex.Store({
         },
         currentPage: 'dashboard',
     },
+    getters: {
+        patientListget: (state) => {
+            return state.PatientList
+        }
+    },
     mutations: {
         login(state) {
             state.isLogin = true;
+            // state.currentStaff = staffData;
+        },
+        logout(state) {
+            state.isLogin = false;
             // state.currentStaff = staffData;
         },
         getPatientList(state, patientData) {
@@ -39,24 +48,33 @@ const store = new Vuex.Store({
         },
         changePage(state, newPage) {
             state.currentPage = newPage
+        },
+        deleteTindakan(state, data) {
+            state.currentPatient.ImmunisasiList = state.currentPatient.ImmunisasiList.filter(el => el.name != data.name)
         }
     },
     actions: {
       // API Key 21059414113068a2e3b8e2e21349cb28
-    async fetchPatientList({commit, state}) {
-        let patientArr = []
-        await db.collection('Patients').get()
-        .then(snapshot => {
-          snapshot.forEach(el => {
-            //   console.log(el.data());
-                patientArr.push(el.data())
-              commit('getPatientList', patientArr)
+    async fetchPatientList({commit}, payload) {
+        if(!payload) {
+            let patientArr = []
+            await db.collection('Patients').get()
+            .then(snapshot => {
+              snapshot.forEach(el => {
+                //   console.log(el.data());
+                    patientArr.push(el.data())
+                  commit('getPatientList', patientArr)
+                })
             })
-        })
-        
-        .catch(er => console.log(er))
+            
+            .catch(er => console.log(er))
+        }
+        else if (payload) {
+            commit('getPatientList', payload)
+        }
+        // console.log(jack)
         // console.log('Fetch')
-        console.log(state.PatientList)
+        // console.log(state.PatientList)
     }, //login dan dapat semua data pasien
     getPatientData({commit, state}, payload) {
         let toFind
@@ -67,30 +85,36 @@ const store = new Vuex.Store({
         }
         console.log(toFind)
         const result = state.PatientList.filter(el => el.name == toFind.name && el.parentName == toFind.parentName && el.dateOfBirth == toFind.dateOfBirth)
-        console.log(result[0])
+        // console.log(result[0])
         commit('getCurrentPatient', result[0])
     }, //click salah satu orang dan dapet datanya
 
     addNewPatient({commit}, payload) {
-        console.log(payload);
+        (payload);
         commit('addPatient', payload)
     },
 
-    loginStaff({commit}, payload) {
+    loginStaff({commit}) {
         //if correct, then commit
         commit('login')
-        console.log(payload)
+        // console.log(payload)
     }, //dapetin nama dan auth doang
-    test() {
-        console.log('Yey')
+    logout({commit}) {
+        commit('logout')
     },
     newPage({commit}, payload) {
         // console.log(payload)
         commit('changePage', payload)
     },
-
+    deleteTindakan({commit}, payload) {
+        //payload berupa tindakan
+        // console.log(state.currentPatient.ImmunisasiList.filter(el => el.name != payload.name))
+        commit('deleteTindakan', payload);
+    },
     addTindakan({commit}, payload) {
         //payload berupa tindakan
+        
+        // console.log(state.PatientList)
         commit('tindakanPatient', payload);
     },
     }

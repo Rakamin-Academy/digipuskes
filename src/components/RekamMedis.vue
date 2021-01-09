@@ -38,7 +38,7 @@
                 <h4 class="table-header col1">Jenis Tindakan</h4>
                 <h4 class="table-header col2">Tanggal</h4>
                 <h4 class="table-header col3">Waktu</h4>
-                <h4 class="table-header col4">Dokter</h4>
+                <h4 class="table-header col4">Petugas</h4>
                 <h4 class="table-header col5">Remarks</h4>
             </div>
             <ul class="content-list isi-rekam">
@@ -50,9 +50,10 @@
                     <p class="list-item waktu col5">{{el.remarks}}</p>
                     <div class="content-update">
                         <!-- Insert Icons -->
-                        <font-awesome-icon :icon="['fas', 'pencil-alt']" class="edit-btn" @click="editData(el.name)"></font-awesome-icon>
-                        <font-awesome-icon :icon="['fas', 'check-square']" class="check-btn" @click="toggleDone(el.name)"></font-awesome-icon>
+                        <font-awesome-icon :icon="['fas', 'trash']" class="edit-btn" @click="deleteData(el)"></font-awesome-icon>
+                        <font-awesome-icon v-if="!el.isDone" :icon="['fas', 'check-square']" class="check-btn" @click="toggleDone(el)"></font-awesome-icon>
                     </div>
+                    <p class="list-item waktu col5">{{el.isDone ? 'Sudah Terlaksana' : 'Belum Terlaksana'}}</p>
                 </li>
             </ul>
         </div>
@@ -61,7 +62,7 @@
             <div class="tindakan-wrapper">
                 <div class="tindakan-content">
                     <div class="tindakan-item">
-                        <h5>Nama Dokter</h5>
+                        <h5>Nama Petugas</h5>
                         <input v-model="dokter" type="text">
                     </div>
                     <div class="tindakan-item">
@@ -107,11 +108,14 @@ export default {
         }
     },
     methods: {
-        editData() {
-            //bikin data baru
+        deleteData(el) {
+            // console.log(el);
+            // console.log(this.patientData)
+            this.$store.dispatch('deleteTindakan', el)
         },
-        toggleDone() {
-            //bikin data baru aja
+        toggleDone(el) {
+            console.log(el)
+            el.isDone = true
         },
         clearField() {
             this.dokter = '';

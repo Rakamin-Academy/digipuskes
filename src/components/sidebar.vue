@@ -15,7 +15,7 @@
       <div class="sidebar-component" @click="changePage(pages.jadwalDokter)">
           <!-- icon -->
           <font-awesome-icon :icon="['fas', 'user-md']" class="icon"></font-awesome-icon>
-          <router-link class="sidebars" to='/jadwalDokter'><h5>Jadwal Dokter</h5></router-link>
+          <router-link class="sidebars" to='/jadwalDokter'><h5>Jadwal Petugas</h5></router-link>
           
       </div>
       <div class="sidebar-component" @click="changePage(pages.rekamMedis)">

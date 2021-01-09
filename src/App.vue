@@ -9,7 +9,7 @@
       <router-view></router-view>
       <search-bar class="searchbar"></search-bar>
     </div>
-    <!-- <button @click="test">Test</button> -->
+    <!-- <button @click.prevent="test">Test</button> -->
   </div>
 </template>
 
@@ -26,27 +26,46 @@ export default {
       routes
     }
   },
+
   async beforeCreate() {
-    await this.$store.dispatch('fetchPatientList')
-    await this.$store.dispatch('getPatientData')
-    //buat percobaan
-    
+    //desperate check for localstorage
+    if(localStorage.patientData) {
+      const data = (localStorage.patientData)
+      // console.log('data empty')
+      // console.log(JSON.parse(data))
+      await this.$store.dispatch('fetchPatientList', JSON.parse(data))
+    }
+    else {
+      await this.$store.dispatch('fetchPatientList', null)
+      await this.$store.dispatch('getPatientData')
+    }
+    if(JSON.parse(localStorage.isLogin)) {
+      this.$store.dispatch("loginStaff")
+    }
+  
   },
   created() {
-  },
-   mounted() {
-    
   },
   components: {
     LoginApp,
     SideBar,
     SearchBar
   },
+  watch: {
+    PatientList: function() {
+      console.log('changed')
+      localStorage.setItem('patientData', JSON.stringify(this.PatientList))
+    },
+    isLogin: function() {
+      localStorage.setItem('isLogin', JSON.stringify(this.isLogin))
+    }
+  },
   computed: {
     currentStaff() {
       return this.$store.state.currentStaff
     },
     PatientList() {
+      // console.log(this.$store.getters.patientListget)
       return this.$store.state.PatientList
     },
     isLogin() {
@@ -61,11 +80,11 @@ export default {
   },
   methods: {
     test() {
-      console.log(this.currentStaff)
-      console.log(this.PatientList)
+      console.log(this.$store.getters.patientListget)
+      // console.log(this.PatientList)
       // this.$store.dispatch('newPage', 'jadwalDokter')
       this.$store.dispatch('getPatientData')
-      console.log(this.currentPatientData.ImmunisasiList)
+      // console.log(this.currentPatientData.ImmunisasiList)
     }
   }
 }
