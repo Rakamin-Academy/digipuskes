@@ -10,6 +10,8 @@
           <th>Nama Orang Tua</th>
           <th>Tanggal Lahir Pasien</th>
           <th>Imunisasi Terakhir</th>
+          <th>Status</th>
+          <th>Tanggal Pelaksanaan</th>
           <th>Dokter</th>
           <th>
             <span class="material-icons">
@@ -26,6 +28,16 @@
               el.ImmunisasiList.length > 0
                 ? el.ImmunisasiList[el.ImmunisasiList.length - 1].name
                 : "-"
+            }}
+          </td>
+          <td>
+            {{
+              el.ImmunisasiList[el.ImmunisasiList.length - 1].isDone ? 'Sudah Terlaksana' : 'Akan Dilaksanakan'
+            }}
+          </td>
+          <td>
+            {{
+              el.ImmunisasiList[el.ImmunisasiList.length - 1].date
             }}
           </td>
           <td>
