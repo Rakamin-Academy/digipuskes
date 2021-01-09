@@ -194,7 +194,7 @@ export default {
 h1 {
   font-size: 50px;
   font-weight: bold;
-  color: #2f80ed;
+  color: #000000;
 }
 
 .container2 {

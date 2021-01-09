@@ -118,11 +118,13 @@ body {
   
   #login-header {
     margin: 0;
-    font-size: 50px;    
+    font-size: 65px;
+    padding-left: 0px;    
   }
 
   #login-sub-header {
-      margin-top: 0;
+      margin-top: 10px;
+      font-size: 20px;
   }
 
   #login-error-msg-holder {
