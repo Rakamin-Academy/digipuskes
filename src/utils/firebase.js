@@ -2,17 +2,10 @@
 import 'firebase/auth'
 import firebase from 'firebase'
 import 'firebase/firestore'
+import {fireConfig} from './Config'
 
 // firebase init - add your own config here
-const firebaseConfig = {
-    apiKey: "AIzaSyCH5CeLKNFqrtMRF6AUjKDFYgPZnDAnSeo",
-    authDomain: "digipuskes.firebaseapp.com",
-    databaseURL: "https://digipuskes.firebaseio.com",
-    projectId: "digipuskes",
-    storageBucket: "digipuskes.appspot.com",
-    messagingSenderId: "410418692503",
-    appId: "1:410418692503:web:550267ccacc431316bc4d2",
-}
+const firebaseConfig = fireConfig
 firebase.initializeApp(firebaseConfig)
 
 // utils

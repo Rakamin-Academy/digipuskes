@@ -2,6 +2,7 @@
 node_modules
 /dist
 /digipuskes
+# src/utils/Config.js
 
 # local env files
 .env.local
